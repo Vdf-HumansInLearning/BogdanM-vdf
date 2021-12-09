@@ -1,0 +1,28 @@
+{
+    "articles": [
+      {
+        "id": 1,
+        "title": "The complete guide to explore Transilvania, with your bike",
+        "subtitle":["Destination Europe", ".", "Added by", "Johnnathan Mercadina", ".", "July 01, 2018"],
+        "image": ["img/bike.jpg", "Bike"]
+      },
+      {
+        "id": 2,
+        "title": "Bucegi: Places you must visit before you die",
+        "subtitle":["Must Visit", ".", "Added by", "Johnnathan Mercadina", ".", "June 30, 2018"],
+        "image": ["img/bucegi.jpg", "Bucegi"]
+      },
+      {
+        "id": 3,
+        "title": "Romania: The land of dreams",
+        "subtitle":["Village", ".", "Added by", "Johnnathan Mercadina", ".", "June 17, 2018"],
+        "image": ["img/village.jpg", "Village"]
+      },
+      {
+        "id": 4,
+        "title": "Sarmale - stuffed cabbage rolls. Good or bad?",
+        "subtitle":["Food", ".", "Added by", "Johnnathan Mercadina", ".", "December 29, 2017"],
+        "image": ["img/sarmale.jpg", "Sarmale"]
+      }
+    ]
+  }

@@ -1,0 +1,357 @@
+:root {
+    --primary-color: #302AE6;
+    --secondary-color: black;
+    --font-color: black;
+    --bg-color: #fff;
+    --heading-color: black;
+}
+
+[data-theme="dark"] {
+    --primary-color: white;
+    --secondary-color: white;
+    --font-color: white;
+    --bg-color: rgb(44, 44, 44);
+    --heading-color: white;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Cardo', sans-serif;
+    color: #1E1E1E;
+}
+
+.container {
+    width: 1280px;
+    margin: 0 auto 30px auto;
+}
+
+.nav {
+    margin-top: 100px;
+    margin-bottom: 130px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav__container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav__item {
+    font-family: "Montserrat";
+    text-transform: uppercase;
+    font-size: 11px;
+    padding-left: 100px;
+    display: inline;
+}
+
+.nav__link {
+    margin-left: auto;
+    text-decoration: none;
+    /* color: #1E1E1E; */
+    font-size: 11px;
+    letter-spacing: 5px;
+}
+
+.add__container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button {
+    font-family: "Montserrat";
+    font-size: 14px;
+    width: 300px;
+    height: 60px;
+    /* border: 1px solid black; */
+    border-radius: 50px;
+    background: transparent;
+    line-height: 18px;
+    text-transform: uppercase;
+    margin-bottom: 90px;
+    letter-spacing: 5px;
+    cursor: pointer;
+}
+
+.title {
+    margin-right: 20%;
+    margin-left: 20%;
+    color: #1E1E1E 100%;
+    font-family: "Montserrat";
+    font-size: 46px;
+    text-align: center;
+    line-height: 57px;
+}
+
+.info__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.info__item {
+    font-family: 'Montserrat';
+    color: #9b9b9b;
+    font-size: 14px;
+    line-height: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.info__mark {
+    /* color: #1E1E1E; */
+    font-family: 'Montserrat';
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.actions__container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.actions__btn {
+    /* color: #1E1E1E; */
+    font-family: 'Montserrat';
+    font-size: 14px;
+    line-height: 18px;
+    border: 0px;
+    background-color: transparent;
+    letter-spacing: 5px;
+    cursor: pointer;
+}
+
+img {
+    height: 720px;
+}
+
+.content__container {
+    color: #1E1E1E;
+    font-family: 'Cardo';
+    font-size: 16px;
+    line-height: 30px;
+    text-align: justify;
+    margin-top: 80px;
+    margin-bottom: 140px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.readmore__container {
+    display: flex;
+    justify-content: center;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 35px;
+    margin-bottom: 100px;
+}
+
+.footer__link {
+    color: #1E1E1E;
+    font-family: 'Montserrat';
+    font-size: 34px;
+    line-height: 42px;
+    border: none;
+    background-color: none;
+    cursor: pointer;
+    background: unset !important;
+}
+
+.icon-plus-1:before {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: normal;
+    content: attr(data-av_icon);
+    font-size: 24px;
+    position: relative;
+    top: 2px;
+}
+
+.saying {
+    padding-top: 105px;
+    padding-bottom: 105px;
+    margin-top: 75px;
+    margin-bottom: 75px;
+    color: #000000;
+    font-family: 'Montserrat';
+    font-size: 28px;
+    line-height: 30px;
+    background-color: #FFE3E3;
+}
+
+/* .footer__link--next { 
+
+} */
+
+.modal{
+    width: 1000px;
+    height: 700px;
+    box-shadow: 0 0 26px 6px;
+    background-color: white;
+}
+
+.modal__content > title {
+    color: var(--font-color);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 46px;
+    line-height: 57px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.modal__overlay {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal__butons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.input {
+    border: 1px solid;
+    border-color: var(--gray);
+    border-radius: 5px;
+    font-size: 18px;
+    width: 400px;
+    height: 35px;
+    padding-left: 10px;
+    margin-bottom: 25px;
+    font-family: 'Cardo', sans-serif;
+}
+
+.inputs__container {
+    padding-left: 75px;
+    padding-right: 75px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.textarea{ 
+    margin-left: 75px;
+    margin-right: 75px;
+    padding-left: 10px;
+    font-family: 'Cardo', sans-serif;
+    font-size: 18px;
+    line-height: 25px;
+    width: 850px;
+}
+
+.modal__buttons{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 75px;
+    padding-left: 75px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+
+
+
+/* dark mode  */
+
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+
+
+}
+
+em {
+    margin-left: 10px;
+    font-size: 1rem;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+}
+
+input:checked+.slider {
+    background-color: #66bb6a;
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+body, .modal, .modal__content, input, textarea {
+    background-color: var(--bg-color);
+    color: var(--font-color);
+
+    /*other styles*/
+
+}
+
+h1, p, ul, button, a, span, .footer__link {
+    color: var(--secondary-color);
+
+    /*other styles*/
+
+}
+
+button {
+    border: 1px solid var(--secondary-color);
+
+}
+
