@@ -1,20 +1,19 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var homeRouter = require('./routes/home');
-var phonesRouter = require('./routes/index');
-var loginRouter = require('./routes/login');
-var cartRouter = require('./routes/cart');
-var registerRouter = require('./routes/register');
-var detailsRouter = require('./routes/details');
-var errorRouter = require('./routes/404');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const homeRouter = require('./routes/home');
+const phonesRouter = require('./routes/index');
+const cartRouter = require('./routes/cart');
+const authRouter = require('./routes/auth');
+const detailsRouter = require('./routes/details');
+const errorRouter = require('./routes/404');
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,19 +29,18 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/home', homeRouter);
 app.use('/shop', phonesRouter);
-app.use('/login', loginRouter);
 app.use('/cart', cartRouter);
-app.use('/register', registerRouter);
+app.use('/auth', authRouter);
 app.use('/details', detailsRouter);
 app.use('/404', errorRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
