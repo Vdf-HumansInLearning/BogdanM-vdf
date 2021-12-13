@@ -1,0 +1,246 @@
+:root {
+    --teal-color: #75D8A6;
+    --blue-color: #3496F0;
+    --gray-color: #7C7C7C;
+    --medium-gray-color: #DDDDDD;
+    --orange-color: #F0AD4E;
+    --red-color: #D9534F;
+    --light-gray-color: #F2F2F2;
+}
+
+html {
+    font-family: 'Open Sans';
+}
+
+.body-container {
+    display: flex;
+}
+
+.aside {
+    width: 50%;
+    background-color: #efefef;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px
+}
+
+.main-dash {
+    display: block;
+}
+
+.main__title {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--gray-color);
+}
+
+.mb-2 {
+    display: flex;
+}
+
+.icon-user {
+    color: var(--medium-gray-color);
+    font-size: 24px;
+}
+
+.icon-lock-open-alt {
+    color: var(--medium-gray-color);
+    font-size: 24px;
+}
+
+.solid {
+    margin: 25px 0 25px 0;
+}
+
+.main__button, .main__button:hover, .main__button:active {
+    width: 100%;
+    background-color: #e60000;
+}
+
+.aside__img {
+    width: 100%;
+    max-width: 300px;
+}
+
+.help-block {
+    text-align: right;
+    text-decoration: none;
+}
+
+.controls {
+    width: 100%;
+}
+
+.form-control {
+    width: 100%;
+}
+
+.body-container-404 {
+    background-color: #e71e24;
+    background-image: url('https://cdn.dribbble.com/users/1536390/screenshots/4803972/media/2edda409cb8516983916cadbf8904f3c.png?compress=1&resize=800x600');
+    background-repeat: no-repeat;
+    
+
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.background_img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    padding-bottom: 5%;
+}
+
+.main__container404 {
+    width: 60%;
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+}
+
+.message_container {
+    text-align: center;
+    position: relative;
+    left: 3%;
+}
+
+.help-block-404 {
+    text-align: center;
+    color: var(--gray-color);
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+}
+
+.button__container404 {
+    text-align: center;
+    position: relative;
+    left: 3%;
+}
+
+.main__button404 {
+    width: 20%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a {
+    color: #e60000;
+}
+
+.vdf-btn {
+    border: transparent;
+}
+
+
+
+body {
+    --color-primary: #009579;
+    --color-primary-dark: #007f67;
+    --color-secondary: #252c6a;
+    --color-error: #cc3333;
+    --color-success: #4bb544;
+    --border-radius: 4px;
+
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    background: url(./background.jpg);
+    background-size: cover;
+}
+
+.container {
+    width: 400px;
+    max-width: 400px;
+    margin: 1rem;
+    padding: 2rem;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+    background: #ffffff;
+}
+
+
+
+.form__title {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+
+.form__input-group {
+    margin-bottom: 1rem;
+}
+
+.form__input {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    border-radius: var(--border-radius);
+    border: 1px solid #dddddd;
+    outline: none;
+    background: #eeeeee;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.form__input:focus {
+    border-color: #e60000;
+    background: #ffffff;
+}
+
+
+.form__button {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #ffffff;
+    border: none;
+    border-radius: var(--border-radius);
+    outline: none;
+    cursor: pointer;
+    background: #e60000;
+}
+
+.form__button:hover {
+    background: #ca0000;
+}
+
+.form__button:active {
+    transform: scale(0.98);
+}
+
+.form__text {
+    text-align: center;
+}
+
+.form__link {
+    color: var(--color-secondary);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form__link:hover {
+    text-decoration: underline;
+}
+
+
+
+

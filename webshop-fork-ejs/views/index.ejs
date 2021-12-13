@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://blackfriday.vodafone.ro/favicon.ico">
+    <base href="/">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/phone-style.css">
+    <title>Phones</title>
+</head>
+
+<body>
+    <header class="header">
+        <%- include('./partials/_navbar'); %>
+    </header>
+
+    <div class="menu">
+        <div class="menu-container">
+            <div class="order input-group mt-3 sort-by">
+                <label class="input-group-text" for="sort"><i class="fas fa-sort"></i> Sort by: </label>
+                <select name="sort" id="sort" class="form-select">
+                    <option value="none">-</option>
+                    <option value="asc">Low to high</option>
+                    <option value="desc">High to low</option>
+                </select>
+            </div>
+            <div class="filter-toggle mt-3">
+                <button id="toggle-filters" class="filter-btn btn btn-outline-secondary">Filter </button>
+            </div>
+
+
+
+            <div class="filter">
+                <form action="/shop" id="filter-form" class="filter-options">
+                    <p class="filter-title">Filters</p>
+                    <fieldset id="filter-brand">
+                        <legend>Brand:</legend>
+                    </fieldset>
+                    <fieldset id="filter-price" class="mt-2">
+                        <legend>Price:</legend>
+                        <input type="radio" name="price-range" id="range_0_1500" value="0_1500">0-1500 lei
+                        <br>
+                        <input type="radio" name="price-range" id="range_1501_3000" value="1501_3000">1501-3000 lei
+                        <br>
+                        <input type="radio" name="price-range" id="range_3000_" value="3000">>3000 lei
+
+                    </fieldset>
+                    <fieldset id="filter-rating" class="mt-2">
+                        <legend>Minimum rating:</legend>
+                        <input type="number" name="minimum_rating" id="minimum_rating" min="1" max="5">
+                    </fieldset>
+                    <fieldset id="filter-os" class="mt-2">
+                        <legend>OS:</legend>
+                    </fieldset>
+                    <fieldset id="filter-stock" class="mt-2">
+                        <legend>In stock:</legend>
+                        <input type="checkbox" name="stock-yes" id="stock-yes" value="true">Yes
+                    </fieldset>
+                    <div class="filter-form-buttons d-flex justify-content-between">
+                        <input type="submit" id="submit" class="submit-button" value="Submit" name="submit">
+                        <input type="reset" id="reset" class="submit-button" value="Reset filters" name="reset">
+                    </div>
+
+                </form>
+            </div>
+
+
+        </div>
+
+        <div id="container" class="container  phone-container">
+            <div class="row" id="phone-row">
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.min.js"
+            integrity="sha512-OvBgP9A2JBgiRad/mM36mkzXSXaJE9BEIENnVEmeZdITvwT09xnxLtT4twkCa8m/loMbPHsvPl0T8lRGVBwjlQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="js/store.js"></script>
+</body>
+
+</html>
