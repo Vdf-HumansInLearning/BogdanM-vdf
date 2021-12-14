@@ -1,12 +1,13 @@
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const isValid = validateRegisterForm();
+    const isValid = validateRegisterForm(); // front-end validation
+    console.log(isValid);
 
-    const form = document.getElementById('form');
-    const errorElement = document.getElementById('error');
     if (isValid) {
-        // TODO: submit form
+        // submit form
+        const form = document.getElementById('form');
+        form.submit();
     }
 });
 
