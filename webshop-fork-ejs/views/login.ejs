@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="/stylesheets/auth.css">
     <link rel="stylesheet" href="icons/fontello-7a7e8710/css/social.css">
-    
+
     <title>Vodafone - Log In</title>
 </head>
 
@@ -24,42 +24,58 @@
 
     <aside class="aside">
         <button class="vdf-btn" onclick="location.href='/shop'">
-            <img  class="aside__img"
-            src="https://logos-world.net/wp-content/uploads/2020/09/Vodafone-Logo.png"
-            alt="logo">
+            <img class="aside__img" src="https://logos-world.net/wp-content/uploads/2020/09/Vodafone-Logo.png"
+                alt="logo">
         </button>
 
     </aside>
 
     <main class="main">
         <div class="main__container">
-            <form class="form" id="login">
+
+            <%if (register === 'true') { %>
+                <div class="alert alert-success" role="alert">
+                    Successfully registered!
+                </div>
+            <% } %>
+
+            <%if (error === 'true') { %>
+                <div class="alert alert-danger" role="alert">
+                    Credentials do not match!
+                </div>
+            <% } %>
+
+            <form class="form" id="login" method="POST" action="/auth/login">
                 <h1 class="main__title form__title">Log in to your account</h1>
                 <hr>
                 <div class="form__message form__message--error"></div>
 
                 <div class="mb-2 form__input-group">
                     <div><i class="icon-user"></i></div>
-                    <input type="text" class="form-control form__input" id="exampleInputEmail1" autofocus placeholder="username or email" aria-describedby="emailHelp">
+                    <input type="text" class="form-control form__input" id="exampleInputEmail1" autofocus
+                        placeholder="username or email" aria-describedby="emailHelp">
                     <div class="form__input-error-message"></div>
                 </div>
                 <div class="mb-2 form__input-group">
                     <div><i class="icon-lock-open-alt"></i></div>
-                    <input type="password" class="form-control form__input" id="exampleInputPassword1" autofocus placeholder="password">
+                    <input type="password" class="form-control form__input" id="exampleInputPassword1" autofocus
+                        placeholder="password">
                     <div class="form__input-error-message"></div>
                 </div>
-               
-                <button onclick="location.href='index.html'" type="submit" class="btn btn-primary btn-danger main__button form__button">Login</button>
-                <p class="help-block form__text">Already have an account? <a class="help-block form__link" id="linkCreateAccount" href="/auth/register">Register</a></p>
+
+                <button onclick="location.href='index.html'" type="submit"
+                    class="btn btn-primary btn-danger main__button form__button">Login</button>
+                <p class="help-block form__text">Already have an account? <a class="help-block form__link"
+                        id="linkCreateAccount" href="/auth/register">Register</a></p>
             </form>
 
-            
+
         </div>
 
     </main>
 
 
-<script src="/js/auth.js"></script>
+    <script src="/js/auth.js"></script>
 </body>
 
 </html>

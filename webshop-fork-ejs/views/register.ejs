@@ -33,20 +33,20 @@
 
             <div id="error" class="error">
 
-                <form class="form" id="form" name="form" method="GET">
+                <form class="form" id="form" name="form" method="POST" action="/auth/register">
                     <h1 class="form__title">Create Account</h1>
 
                     <div class="form__input-group">
-                        <input type="text" id="username" class="form__input" placeholder="Username">
+                        <input type="text" id="username" name="username" class="form__input" placeholder="Username">
                     </div>
                     <div class="form__input-group">
-                        <input type="text" id="email" class="form__input" name="" placeholder="Email Address">
+                        <input type="text" id="email" class="form__input" name="email" placeholder="Email Address">
                     </div>
                     <div class="form__input-group">
-                        <input type="password" id="password" class="form__input" placeholder="Password">
+                        <input type="password" id="password" name="password" class="form__input" placeholder="Password">
                     </div>
                     <div class="form__input-group">
-                        <input type="password" id="confirmPassword" class="form__input" placeholder="Confirm password">
+                        <input type="password" id="confirmPassword" name="confirmPassword" class="form__input" placeholder="Confirm password">
                     </div>
 
                     <button class="form__button" type="submit">Register</button>

@@ -1,12 +1,13 @@
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const isValid = validateRegisterForm();
+    const isValid = validateRegisterForm(); // front-end validation
+    console.log(isValid);
 
-    const form = document.getElementById('form');
-    const errorElement = document.getElementById('error');
     if (isValid) {
-        // TODO: submit form
+        // submit form
+        const form = document.getElementById('form');
+        form.submit();
     }
 });
 
@@ -23,31 +24,25 @@ function validateRegisterForm() {
         username.parentElement.insertAdjacentHTML('beforeend', '<p class="error">Username must be between 3 and 20 characters</p>');
     }
 
-
-    // TODO: do email validation 
     const email = document.getElementById('email');
-    const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-    // if (email.matches(pattern)) {
-    //     form.classList.add("valid");
-    //     form.classList.remove("invalid");
-    // } else {
-    //     form.classList.remove("valid");
-    //     form.classList.add("invalid");
-    // }
-
+    removePreviousError(email.parentElement);
+    const pattern = /^\S+@\S+\.\S+$/;
+    if (!pattern.test(email.value)) {
+        email.parentElement.insertAdjacentHTML('beforeend', '<p class="error">Email is not valid</p>');
+    }
 
     const password = document.getElementById('password');
+    removePreviousError(password.parentElement);
+    if (password.value.length <= 6 || password.value.length >= 20) {
+        isValid = false;
+        password.parentElement.insertAdjacentHTML('beforeend', '<p class="error">Password must be between 6 and 20 characters</p>');
+    }
+
     const confirmPassword = document.getElementById('confirmPassword');
-    if (password.value.length <= 6) {
-        // messages.push('Password must be longer than 6 characters');
-    }
-
-    if (password.value.length >= 20) {
-        //  messages.push('Password must be less than 20 characters');
-    }
-
+    removePreviousError(confirmPassword.parentElement);
     if (confirmPassword.value !== password.value) {
-        // messages.push('Passwords do not match');
+        isValid = false;
+        password.parentElement.insertAdjacentHTML('beforeend', '<p class="error">Passwords do not match</p>');
     }
 
     return isValid;
