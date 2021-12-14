@@ -39,7 +39,13 @@
                 </div>
             <% } %>
 
-            <form class="form" id="login">
+            <%if (error === 'true') { %>
+                <div class="alert alert-danger" role="alert">
+                    Credentials do not match!
+                </div>
+            <% } %>
+
+            <form class="form" id="login" method="POST" action="/auth/login">
                 <h1 class="main__title form__title">Log in to your account</h1>
                 <hr>
                 <div class="form__message form__message--error"></div>
