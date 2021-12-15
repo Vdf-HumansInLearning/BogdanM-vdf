@@ -444,6 +444,7 @@ let productObj = {
 
 
 
+
     // sort by price asc
     function getSortedByPriceAsc(){
         return (a,b) => {
@@ -458,3 +459,5 @@ let productObj = {
             return b.price - a.price;
         };
     }
+
+
