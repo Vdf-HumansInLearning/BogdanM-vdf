@@ -7,26 +7,40 @@ router.get("/login", function (req, res, next) {
 });
 
 router.post("/login", function (req, res, next) {
-
   // read username and password
-  let username = req.body.username;
+  let email = req.body.email;
   let password = req.body.password;
 
-  // get users from file
-  let users = fs.readFileSync('./data/users.json', { encoding: 'utf8' });
+  // validate that the username and email exists
+  if (!email || !password) {
+    res.redirect('/auth/login?error=true');
+  }
+
+  // get the users from file and parse the resulting string as a JSON
+  let users = JSON.parse(fs.readFileSync('./data/users.json', { encoding: 'utf8' }));
 
   // check if credentials match any existing user
-  let loggedInUser = users.find(user => user.username === username && user.password === password);
+  let loggedInUser = users.find(user => user.email.toLowerCase() === email.toLowerCase() && user.password === password);
 
   if (loggedInUser) {
-    // create cookie with user session and redirect to homepage
+    // create cookie with the user email
+    res.cookie('email', email, { secure: true, signed: true });
 
     res.redirect('/home');
   } else {
     // redirect to login and show error message
     res.redirect('/auth/login?error=true');
   }
+});
 
+router.get('/logout', function (req, res, next) {
+  // clear the cookie
+  if (req.signedCookies.email) {
+    res.clearCookie('email');
+  }
+
+  // redirect to homepage
+  res.redirect('/home');
 });
 
 router.get("/register", function (req, res, next) {
