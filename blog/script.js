@@ -33,7 +33,7 @@ function renderNavBar(nav) {
 }
 
 
-// create + add article button
+// create and add article button
 
 function createAddButton() {
     const div = document.createElement('div');
