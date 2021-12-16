@@ -1,469 +1,665 @@
-let list = ['Travel updates', 'Reviews', 'About', 'Contact'];
-// let articles = [
-//     {
-//         id: 1,
-//         title: 'The complete guide to explore Transilvania, with your bike',
-//         subtitle: ['Destination Europe', '.', 'Added by', 'Johnnathan Mercadina', '.', 'July 01, 2018'],
-//         image: ['img/bike.jpg', 'Bike']
-//     },
-//     {
-//         id: 2,
-//         title: 'Bucegi: Places you must visit before you die',
-//         subtitle: ['Must Visit', '.', 'Added by', 'Johnnathan Mercadina', '.', 'June 30, 2018'],
-//         image: ['img/bucegi.jpg', 'Bucegi']
-//     },
-//     {
-//         id: 3,
-//         title: 'Romania: The land of dreams',
-//         subtitle: ['Village', '.', 'Added by', 'Johnnathan Mercadina', '.', 'June 17, 2018'],
-//         image: ['img/village.jpg', 'Village']
-//     },
-//     {
-//         id: 4,
-//         title: 'Sarmale - stuffed cabbage rolls. Good or bad?',
-//         subtitle: ['Food', '.', 'Added by', 'Johnnathan Mercadina', '.', 'December 29, 2017'],
-//         image: ['img/sarmale.jpg', 'Sarmale']
-//     }
-// ];
-let stArticleContent = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est totam laboriosam debitis magnam voluptatum, incidunt neque. Totam ullam non quis, repellendus molestiae in itaque natus labore quos ipsumalias, veritatis nihil! Quisquam labore, sequi minima expedita necessitatibus omnis error ametrecusandae atque commodi quia! Vel laborum recusandae voluptatum rerum id harum, fuga beatae ut, consequuntur repellendus ipsum temporibus libero itaque.'
-let ndArticleContent = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quod tempore quaerat deserunt. Voluptatibus mollitia aut dolor ipsa delectus a autem ut quibusdam incidunt? Nisi facilis voluptatem omnis debitis laborum cupiditate pariatur inventore molestiae eveniet!';
-let buttons = ['Edit', 'Delete'];
+const domContainer = document.getElementById('main__container');
 
-let mainContainer = document.getElementById('main__container');
-let text = 'Lorem ipsum dolor amet consectetur adipisicing elit. Atibus obcaecati njx dolorem aut quisquam eveniet quibusdam soluta doloremque qui, nostrum laudantium, sapiente iusto odit. Placeat iusto eius asperiores iure atque sint ex! Impedit soluta tenetur alias id doloremque dolores incidunt earum? Animi, quas eligendi! Est voluptas dolor eos quae, harum amet cumque vitae nobis placeat inventore facilis soluta maiores magni dolores consequuntur iure accusamus laborum? Ipsum voluptatum culpa doloremque minima ratione veritatis nesciunt cum quae esse sint optio eos ipsam repellendus ipsa repellat qui, sed fugiat, quaerat adipisci quia temporibus totam iusto. Labore laudantium possimus nisi, doloremque suscipit eligendi dolorem exercitationem excepturi rem odio, a placeat aliquid voluptates amet officia sunt corrupti? Cum, enim illo. Possimus ipsa veritatis excepturi. Hic molestias perspiciatis laborum, saepe excepturi eaque suscipit illum voluptates ad recusandae nam distinctio nulla eos aperiam necessitatibus. Corrupti ipsam numquam, placeat deserunt iste quae dicta facilis natus laboriosam tempore minus modi corporis esse excepturi facere nam quam suscipit? Adipisci consequatur similique, voluptatum sed itaque velit iure optio! Laboriosam eligendi, perspiciatis veniam eum doloremque cum debitis natus eos? Amet culpa asperiores natus harum suscipit ducimus, iure recusandae quibusdam voluptate mollitia unde nulla nemo tempora corrupti facere. Dolore qui, illum vel nesciunt, corrupti necessitatibus, est tenetur repellat fuga officia eius maiores non libero. Voluptates illum ea quaerat, eaque quidem vitae dolorum debitis doloribus dolor accusamus ab similique doloremque, voluptas nemo. Natus dolor officiis illo hic, aliquid iusto eos? Magni quibusdam sunt vel? Neque, tempora temporibus exercitationem qui molestias corrupti, esse voluptatem possimus, ratione ex quod repellat iste nobis! Rerum beatae consectetur itaque pariatur quos omnis perspiciatis laboriosam quis quod, sed iusto. Consectetur qui dolores sequi sint, provident voluptatibus tempora illo repellendus vel suscipit voluptas magni quod quaerat corrupti eaque, optio vitae non recusandae sed atque similique ad in. Error maxime fugiat ut tenetur ipsam quibusdam ipsa recusandae alias blanditiis, deserunt, porro laudantium. Sit omnis cumque pariatur ipsum, fugiat, quae id quo autem sint nihil doloremque impedit magnam. Earum eveniet reprehenderit recusandae nam beatae sint provident?';
-let saying = 'Life is like riding a bicycle, to keep your balance you must keep moving';
+// create nav bar
+const nav = ['Travel updates', 'Reviews', 'About', 'Contact'];
 
-function createNavigation(list) {
-
+function createNav(nav) {
+    
     const navBar = document.createElement('nav');
     navBar.setAttribute('class', 'nav');
-    navBar.setAttribute('id', 'nav__bar');
-    const navCont = document.createElement('ul');
-    for (let i = 0; i < list.length; i++) {
-        const domName = document.createElement('li');
-        domName.setAttribute('class', 'nav__item');
 
-        const domLink = document.createElement('a');
-        domLink.textContent = list[i];
-        domLink.setAttribute('class', 'nav__link');
+    const ul = document.createElement('ul');
+    navBar.appendChild(ul);
 
-        domName.appendChild(domLink);
-        navCont.appendChild(domName);
-    }
-    navBar.appendChild(navCont);
-    mainContainer.append(navBar);
+    nav.forEach(element => {
+        const li = document.createElement('li');
+        li.setAttribute('class', 'nav__item');
+        const anchor = document.createElement('a');
+        anchor.setAttribute('href', '#/');
+        anchor.setAttribute('class', 'nav__link');
+        anchor.textContent = element;
+
+        ul.appendChild(li);
+        li.appendChild(anchor);
+    })
+
+    return navBar;
 }
 
-function renderHomePage(articles) {
-    clearMain();
-    const mainArticles = document.createElement('main');
-    mainArticles.setAttribute('id', 'main__articles');
+function renderNavBar(nav) {
+    const domNavBar = createNav(nav);
+    domContainer.appendChild(domNavBar);
+    createNav(nav);
+}
 
-    function createArticle(article) {
-        const container = document.createElement('article');
-        container.setAttribute('id', article.id);
 
+// create + add article button
+
+function createAddButton() {
+    const div = document.createElement('div');
+    div.setAttribute('class', 'add__container');
+    const button = document.createElement('button');
+    button.setAttribute('type', 'button ');
+    button.setAttribute('class', 'button icon-plus-1 open-modal');
+    button.textContent = 'Add Article';
+    button.addEventListener('click', function() {
+        openModal();
+    })
+    div.appendChild(button);
+    return div;
+}
+
+function renderAddButton() {
+    const domButton = createAddButton();
+    domContainer.appendChild(domButton);
+    createAddButton();
+}
+
+// fetch/get data from server
+fetch('http://localhost:3000/articles')
+    .then(
+        function(response) {
+            if (response.status !== 200) {
+
+                console.log('Looks like there was a problem. Status Code: ' +
+                    response.status);
+                return;
+            }
+
+            // Examine the text in the response
+            response.json()
+                .then(data => {
+                    console.log(data)
+                    window.onhashchange = locationHashChange(data);
+                });
+        }
+    )
+    .catch(function(err) {
+        console.log('Fetch Error :-S', err);
+    });
+
+// create index articles function
+function createArticle(articles) {
+    const domArticle = document.createElement('article');
+    console.log(articles)
+
+    articles.forEach(element => {
+        const articleDiv = document.createElement('div');
+        articleDiv.setAttribute('id', 'article' + element.id);
         const domTitle = document.createElement('h2');
+        domTitle.textContent = element.title;
         domTitle.setAttribute('class', 'title');
-        domTitle.textContent = article.title;
-        container.appendChild(domTitle);
 
-        const domInfo = document.createElement('ul');
-        domInfo.setAttribute('class', 'info__container');
+        const domUl = document.createElement('ul');
+        domUl.setAttribute('class', 'info__container');
 
-        for (let i = 0; i < article.subtitle.length; i++) {
-            if (i != 3) {
-                if (article.subtitle[i] === '.') {
-                    const subList = document.createElement('p');
-                    subList.textContent = article.subtitle[i];
-                    subList.setAttribute('class', 'dot');
-                    domInfo.appendChild(subList);
-                } else {
-                    const subList = document.createElement('li');
-                    subList.setAttribute('class', 'info__item');
-                    subList.textContent = article.subtitle[i];
-                    domInfo.appendChild(subList);
-                }
+        const domLi1 = document.createElement('li');
+        domLi1.setAttribute('class', element.classLi);
+        domLi1.textContent = element.tag;
 
-            } else {
-                const subList = document.createElement('li');
-                subList.setAttribute('class', 'info__item');
-                const author = document.createElement('span');
-                author.setAttribute('class', 'info__mark');
-                author.textContent = article.subtitle[i];
-                subList.appendChild(author);
-                domInfo.appendChild(subList);
-            }
+        const domLi2 = document.createElement('li');
+        domLi2.setAttribute('class', element.classLi);
+        domLi2.textContent = element.author;
 
-        }
-        container.appendChild(domInfo);
+        const domSpan = document.createElement('span');
+        domSpan.setAttribute('class', 'info__mark point');
+        domSpan.textContent = 'Jonnathan Mercadina';
 
+        const domLi3 = document.createElement('li');
+        domLi3.setAttribute('class', element.classLi);
+        domLi3.textContent = element.date;
 
-        const domAction = document.createElement('div');
-        domAction.setAttribute('class', 'actions__container');
-        for (let i = 0; i < buttons.length; i++) {
-            const actionButton = document.createElement('button');
-            actionButton.setAttribute('class', 'actions__btn');
-            actionButton.setAttribute('type', 'button');
-            actionButton.textContent = buttons[i];
-            domAction.appendChild(actionButton);
-
-            if (i !== buttons.length - 1) {
-                const pipeline = document.createElement('div');
-                pipeline.textContent = '|';
-                domAction.appendChild(pipeline);
-            }
-        }
-        container.appendChild(domAction);
+        domUl.appendChild(domLi1);
+        domUl.appendChild(domLi2);
+        domLi2.appendChild(domSpan);
+        domUl.appendChild(domLi3);
 
         const domImg = document.createElement('img');
-        domImg.setAttribute('src', article.image[0]);
-        domImg.setAttribute('alt', article.image[1]);
-        container.appendChild(domImg);
+        domImg.setAttribute('src', element.imgUrl);
+        domImg.setAttribute('alt', element.imgAlt);
 
-        const domContent = document.createElement('div');
-        domContent.setAttribute('class', 'content__container');
-        const firstText = document.createElement('p');
-        firstText.textContent = stArticleContent;
-        const secondText = document.createElement('p');
-        secondText.textContent = ndArticleContent;
-        domContent.appendChild(firstText);
-        domContent.appendChild(secondText);
-        container.appendChild(domContent);
+        const domActionDiv = document.createElement('div');
+        domActionDiv.setAttribute('class', 'actions__container');
 
-        const readMore = document.createElement('div');
-        readMore.setAttribute('class', 'readmore__container');
+        const editButton = document.createElement('button');
+        editButton.setAttribute('type', 'button');
+        editButton.setAttribute('class', 'actions__btn border');
+        editButton.setAttribute('id', element.id);
+        editButton.textContent = 'Edit'
+        editButton.addEventListener('click', function() {
+            openModal()
+            editArticle(element);
+            document.querySelector('.button-edit-modal').style.display = 'block';
+            document.querySelector('.button--pink').style.display = 'none';
+        })
 
-        const linkArticle = document.createElement('a');
-        linkArticle.setAttribute('href', '#/article?id=' + article.id);
-        readMore.appendChild(linkArticle);
+        const deleteButton = document.createElement('button');
+        deleteButton.setAttribute('type', 'button');
+        deleteButton.setAttribute('class', 'actions__btn');
+        deleteButton.textContent = '| Delete';
+        deleteButton.addEventListener('click', function() {
+            deleteArticle(element.id);
+        })
+
+        domActionDiv.appendChild(editButton);
+        domActionDiv.appendChild(deleteButton);
+
+        const domP = document.createElement('p');
+        domP.setAttribute('class', 'line-height ');
+        domP.textContent = element.content1;
+
+        const domP2 = document.createElement('p');
+        domP2.textContent = element.content2;
+
+        const domContainer = document.createElement('div');
+        domContainer.setAttribute('class', 'content__container');
+        domContainer.appendChild(domP);
+        domContainer.appendChild(domP2);
+
+        const readMoreDiv = document.createElement('div');
+        readMoreDiv.setAttribute('class', 'readmore__container');
+
+
+        const readMoreAnchor = document.createElement('a');
+        readMoreAnchor.setAttribute('class', 'btn-details');
+        readMoreAnchor.setAttribute('href', '#/article' + element.id);
 
         const readMoreButton = document.createElement('button');
-        readMoreButton.setAttribute('class', 'button');
         readMoreButton.setAttribute('type', 'button');
-        readMoreButton.textContent = "Read More";
-        linkArticle.appendChild(readMoreButton);
-        container.appendChild(readMore);
-
-        mainArticles.append(container);
-        mainContainer.appendChild(mainArticles)
-    };
-
-    function addFooter() {
-        const footer = document.createElement('footer');
-        footer.setAttribute('class', 'footer');
-        footer.setAttribute('id', 'footer');
-        const prevBtn = document.createElement('button');
-        prevBtn.setAttribute('class', 'footer__link');
-        prevBtn.textContent = 'prev';
-
-        const nextBtn = document.createElement('button');
-        nextBtn.setAttribute('class', 'footer__link footer__link--next');
-        nextBtn.textContent = 'next';
-
-        footer.appendChild(prevBtn);
-        footer.appendChild(nextBtn);
-        mainContainer.appendChild(footer);
-    }
-
-    function createAddButton() {
-        const buttonDiv = document.createElement('div');
-        buttonDiv.setAttribute('class', 'add__container');
-        const button = document.createElement('button');
-        button.setAttribute('class', 'button icon-plus-1');
-        button.setAttribute('id', 'add_btn');
-        button.setAttribute('type', 'button');
-        button.textContent = 'Add article';
-
-        buttonDiv.append(button);
-        mainContainer.appendChild(buttonDiv);
-
-        button.addEventListener("click", function () {
-            document.getElementById('modal_window').style.display = 'flex';
+        readMoreButton.setAttribute('class', 'button button-details');
+        readMoreAnchor.setAttribute('href', '#/article' + element.id);
+        readMoreButton.textContent = 'Read More';
+        readMoreButton.addEventListener('click', function() {
+            location.hash = '#/article' + element.id;
+            location.reload();
         })
+
+        readMoreDiv.appendChild(readMoreAnchor);
+        readMoreAnchor.appendChild(readMoreButton);
+
+        domArticle.appendChild(articleDiv);
+        articleDiv.appendChild(domTitle);
+        articleDiv.appendChild(domUl);
+        articleDiv.appendChild(domActionDiv);
+        articleDiv.appendChild(domImg);
+        articleDiv.appendChild(domContainer);
+        articleDiv.appendChild(readMoreDiv);
+
+    });
+    return domArticle;
+
+}
+
+// rendering index articles
+function renderArticle(articles) {
+    clearRoot();
+    renderNavBar(nav);
+    renderAddButton();
+    const domArticle = createArticle(articles);
+    domContainer.appendChild(domArticle);
+    createArticle(articles);
+    renderFooter();
+}
+
+// create index footer
+function createFooter() {
+    const footer = document.createElement('footer');
+    footer.setAttribute('class', 'footer');
+    const previousButton = document.createElement('button');
+
+    previousButton.setAttribute('class', 'footer__link footer__link--previous');
+    previousButton.textContent = 'previous';
+
+    const nextButton = document.createElement('button');
+    nextButton.setAttribute('id', 'button-next');
+    nextButton.setAttribute('class', 'footer__link footer__link--next');
+    nextButton.textContent = 'next';
+
+    footer.appendChild(previousButton);
+    footer.appendChild(nextButton);
+
+    return footer;
+}
+
+// render index footer
+function renderFooter() {
+    const domFooter = createFooter();
+    domContainer.appendChild(domFooter);
+    createFooter();
+}
+
+// create details page footer
+function detailsFooter(article, artLength) {
+    console.log(article)
+    const footer = document.createElement('footer');
+    footer.setAttribute('class', 'footer');
+    const previousButton = document.createElement('button');
+
+    previousButton.setAttribute('class', 'footer__link footer__link--previous');
+    previousButton.textContent = 'previous';
+
+    const nextButton = document.createElement('button');
+    nextButton.setAttribute('id', 'button-next');
+    nextButton.setAttribute('class', 'footer__link footer__link--next');
+    nextButton.textContent = 'next';
+
+    if (location.hash.includes('#/article1')) {
+        previousButton.style.visibility = 'hidden';
+    } else if (location.hash.includes(`#/article` + artLength)) {
+        nextButton.style.visibility = 'hidden';
     }
 
-    //Modal
-
-    function createModal() {
-
-        const modalWindow = document.createElement('div');
-        modalWindow.setAttribute('id', 'modal_window');
-        modalWindow.setAttribute('class', 'modal__overlay');
-
-        const placeholders = ['title', 'tag', 'author', 'date', 'image url', 'saying', 'content']
-
-        const modal = document.createElement('div');
-        modal.setAttribute('class', 'modal');
-        const modalContent = document.createElement('div');
-        modalContent.setAttribute('class', 'modal__content');
-
-        modalWindow.appendChild(modal);
-        modal.appendChild(modalContent);
-        mainContainer.appendChild(modalWindow);
-
-        const title = document.createElement('h2');
-        title.setAttribute('class', 'title');
-        title.textContent = 'Add/Edit article';
-        modalContent.appendChild(title);
-
-        const inputContainer = document.createElement('div');
-        inputContainer.setAttribute('class', 'inputs__container');
-
-        for (let i = 0; i < placeholders.length - 1; i++) {
-            const input = document.createElement('input');
-            input.setAttribute('type', 'text');
-            input.setAttribute('class', 'input');
-            input.setAttribute('placeholder', "Please enter " + placeholders[i]);
-            inputContainer.appendChild(input);
+    nextButton.addEventListener('click', function() {
+        if (article.id >= 1 && article.id < artLength) {
+            // changing the route to the next article
+            location.hash = '#/article' + (article.id + 1);
+            // reloading page
+            location.reload();
         }
-        modalContent.appendChild(inputContainer);
+    })
 
-        const textArea = document.createElement('textarea');
-        textArea.setAttribute('class', 'textarea');
-        textArea.setAttribute('name', 'content');
-        textArea.setAttribute('rows', '7');
-        textArea.setAttribute('cols', '28');
-        textArea.setAttribute('placeholder', 'Please enter ' + placeholders[placeholders.length - 1]);
-        modalContent.appendChild(textArea);
+    previousButton.addEventListener("click", function() {
+        if (article.id <= artLength) {
+            // changing the route to the previous article
+            location.hash = '#/article' + (article.id - 1);
+            // reload the page
+            location.reload();
+        }
+    })
 
-        const modalButtons = document.createElement('div');
-        modalButtons.setAttribute('class', 'modal__buttons');
-        modalContent.appendChild(modalButtons);
+    footer.appendChild(previousButton);
+    footer.appendChild(nextButton);
 
-        const cancelBtn = document.createElement('button');
-        cancelBtn.setAttribute('type', 'button');
-        cancelBtn.setAttribute('class', 'button');
-        cancelBtn.textContent = 'Cancel';
-        modalButtons.appendChild(cancelBtn);
+    return footer;
+}
 
-        cancelBtn.addEventListener("click", function () {
-            document.getElementById('modal_window').style.display = 'none';
-        })
+// render details page footer
+function renderDetailsFooter(article, artLength) {
+    const domFooter = detailsFooter(article, artLength);
+    domContainer.appendChild(domFooter);
+    detailsFooter(article, artLength);
+}
 
-        const saveBtn = document.createElement('button');
-        saveBtn.setAttribute('type', 'button');
-        saveBtn.setAttribute('class', 'button button--pink');
-        saveBtn.textContent = 'Save';
-        modalButtons.appendChild(saveBtn);
-    }
-    //Functions calls
-    createNavigation(list);
-    createAddButton();
-    for (let i = 0; i < articles.length; i++) {
-        createArticle(articles[i]);
-    }
-    addFooter();
+// create details page article
+function createArticleDetails(article) {
+    const domArticle = document.createElement('article');
+
+    const divArticle = document.createElement('div');
+    divArticle.setAttribute('id', 'article' + article.id);
+    domArticle.appendChild(divArticle);
+    const domTitle = document.createElement('h2');
+    domTitle.textContent = article.title;
+    domTitle.setAttribute('class', 'title');
+
+    const domUl = document.createElement('ul');
+    domUl.setAttribute('class', 'info__container');
+
+    const domLi1 = document.createElement('li');
+    domLi1.setAttribute('class', article.classLi);
+    domLi1.textContent = article.tag;
+
+    const domLi2 = document.createElement('li');
+    domLi2.setAttribute('class', article.classLi);
+    domLi2.textContent = article.author;
+
+    const domSpan = document.createElement('span');
+    domSpan.setAttribute('class', 'info__mark point');
+    domSpan.textContent = 'Jonnathan Mercadina';
+
+    const domLi3 = document.createElement('li');
+    domLi3.setAttribute('class', article.classLi);
+    domLi3.textContent = article.date;
+
+    domUl.appendChild(domLi1);
+    domUl.appendChild(domLi2);
+    domLi2.appendChild(domSpan);
+    domUl.appendChild(domLi3);
+
+    const domImg = document.createElement('img');
+    domImg.setAttribute('src', article.imgUrl);
+    domImg.setAttribute('alt', article.imgAlt);
+
+    divArticle.appendChild(domTitle);
+    divArticle.appendChild(domUl);
+    divArticle.appendChild(domImg);
+
+    const domDivContentContainer = document.createElement('div');
+    domDivContentContainer.setAttribute('class', 'content__container');
+    divArticle.appendChild(domDivContentContainer);
+
+
+    const p1 = document.createElement('p');
+    p1.textContent = article.content1;
+
+    const p2 = document.createElement('p');
+    p2.textContent = article.content2;
+    
+    const saying = document.createElement('p');
+    saying.setAttribute('class', 'saying');
+    saying.textContent = article.saying;
+    
+    const p3 = document.createElement('p');
+    p3.textContent = article.content2;
+    
+    const p4 = document.createElement('p');
+    p4.textContent = article.content4;
+
+    domDivContentContainer.appendChild(p1);
+    domDivContentContainer.appendChild(p2);
+    domDivContentContainer.appendChild(saying);
+    domDivContentContainer.appendChild(p3);
+    domDivContentContainer.appendChild(p4);
+
+    return domArticle;
+}
+
+
+// render details page article
+function renderSingleArticleDetails(article) {
+    const domArticle = createArticleDetails(article);
+    domContainer.appendChild(domArticle);
+    createArticleDetails(article);
+}
+
+
+// iterating articles and rendering based on hash
+function renderAllArticlesDetails(articles) {
+    console.log(articles)
+    Array.from(articles).forEach(item => {
+        if (location.hash.includes(item.id)) {
+            renderNavBar(nav);
+            renderSingleArticleDetails(item);
+            renderDetailsFooter(item, articles.length);
+        }
+    });
+}
+
+// create modal
+let modal = document.getElementById("modal_window");
+
+function createModal() {
+    const modalDiv = document.createElement('div');
+    modalDiv.setAttribute('class', 'modal');
+
+    const modalContent = document.createElement('div');
+    modalContent.setAttribute('class', 'modal__content');
+
+    const modalTitle = document.createElement('h2');
+    modalTitle.setAttribute('class', 'title modal-title');
+    modalTitle.textContent = "Add/Edit article";
+
+    const inputsContainer = document.createElement('div');
+    inputsContainer.setAttribute('class', 'inputs__container');
+
+    const input1 = document.createElement('input');
+    input1.setAttribute('type', 'text');
+    input1.setAttribute('class', 'input margin');
+    input1.setAttribute('id', 'title')
+    input1.setAttribute('placeholder', 'Please enter title');
+
+    const input2 = document.createElement('input');
+    input2.setAttribute('type', 'text');
+    input2.setAttribute('class', 'input');
+    input2.setAttribute('id', 'tag')
+    input2.setAttribute('placeholder', 'Please enter tag');
+
+    const input3 = document.createElement('input');
+    input3.setAttribute('type', 'text');
+    input3.setAttribute('class', 'input margin');
+    input3.setAttribute('id', 'author')
+    input3.setAttribute('placeholder', 'Please enter author');
+
+    const input4 = document.createElement('input');
+    input4.setAttribute('type', 'text');
+    input4.setAttribute('class', 'input');
+    input4.setAttribute('id', 'date')
+    input4.setAttribute('placeholder', 'Please enter date');
+
+    const input5 = document.createElement('input');
+    input5.setAttribute('type', 'text');
+    input5.setAttribute('class', 'input margin');
+    input5.setAttribute('id', 'url')
+    input5.setAttribute('placeholder', 'Please enter image url');
+
+    const input6 = document.createElement('input');
+    input6.setAttribute('type', 'text');
+    input6.setAttribute('class', 'input');
+    input6.setAttribute('id', 'saying')
+    input6.setAttribute('placeholder', 'Please enter saying');
+
+    const textarea = document.createElement('textarea');
+    textarea.setAttribute('class', 'textarea');
+    textarea.setAttribute('id', 'textarea')
+    textarea.setAttribute('name', 'content');
+    textarea.setAttribute('cols', '28');
+    textarea.setAttribute('rows', '7');
+    textarea.setAttribute('placeholder', 'Please enter content');
+
+    const modalButtonsDiv = document.createElement('div');
+    modalButtonsDiv.setAttribute('class', 'modal__buttons');
+
+    const closeModalButton = document.createElement('button');
+    closeModalButton.setAttribute('type', 'button');
+    closeModalButton.setAttribute('class', 'button close-modal');
+    closeModalButton.textContent = 'Cancel';
+
+    const saveModalButton = document.createElement('button');
+    saveModalButton.setAttribute('type', 'button');
+    saveModalButton.setAttribute('class', 'button button--pink');
+    saveModalButton.textContent = 'Save';
+    saveModalButton.addEventListener('click', function() {
+        createNewArticle();
+
+    })
+
+    const editModalButton = document.createElement('button');
+    editModalButton.setAttribute('type', 'button');
+    editModalButton.setAttribute('class', 'button button-edit-modal');
+    editModalButton.textContent = 'Save';
+
+    modalDiv.appendChild(modalContent);
+    modalContent.appendChild(modalTitle);
+    modalContent.appendChild(inputsContainer);
+    inputsContainer.appendChild(input1);
+    inputsContainer.appendChild(input2);
+    inputsContainer.appendChild(input3);
+    inputsContainer.appendChild(input4);
+    inputsContainer.appendChild(input5);
+    inputsContainer.appendChild(input6);
+    modalContent.appendChild(textarea);
+    modalContent.appendChild(modalButtonsDiv);
+    modalButtonsDiv.appendChild(closeModalButton);
+    modalButtonsDiv.appendChild(saveModalButton);
+    modalButtonsDiv.appendChild(editModalButton);
+
+    return modalDiv;
+}
+
+// rendering modal
+function renderModal() {
+    const domModal = createModal();
+    modal.appendChild(domModal);
     createModal();
-
-    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-    function switchTheme(e) {
-        if (e.target.checked) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-        }
-        else {
-            document.documentElement.setAttribute('data-theme', 'light');
-        }
-    }
-    toggleSwitch.addEventListener('change', switchTheme, false);
-
 }
 
-function renderArticlePage(articles) {
-    clearMain();
-    function createArticle(article) {
-        const container = document.createElement('div');
-        container.setAttribute('id', 'article');
+renderModal();
 
-        const domTitle = document.createElement('h2');
-        domTitle.setAttribute('class', 'title title--details');
-        domTitle.textContent = article.title;
-        container.appendChild(domTitle);
+// clear container
+function clearRoot() {
+    domContainer.innerHTML = '';
+}
 
-        const domInfo = document.createElement('ul');
-        domInfo.setAttribute('class', 'info__container info__container--details');
+// edit article function
+function editArticle(article) {
+    let title = document.getElementById('title');
+    let tag = document.getElementById('tag');
+    let author = document.getElementById('author');
+    let date = document.getElementById('date');
+    let url = document.getElementById('url');
+    let saying = document.getElementById('saying');
+    let textarea = document.getElementById('textarea');
 
-        for (let i = 0; i < article.subtitle.length; i++) {
-            if (i != 3) {
-                if (article.subtitle[i] === '.') {
-                    const subList = document.createElement('p');
-                    subList.textContent = article.subtitle[i];
-                    subList.setAttribute('class', 'dot');
-                    domInfo.appendChild(subList);
-                } else {
-                    const subList = document.createElement('li');
-                    subList.setAttribute('class', 'info__item');
-                    subList.textContent = article.subtitle[i];
-                    domInfo.appendChild(subList);
-                }
+    title.value = article.title;
+    tag.value = article.tag;
+    author.value = article.author;
+    date.value = article.date;
+    url.value = article.imgUrl;
+    saying.value = article.saying;
+    textarea.value = article.content1;
 
-            } else {
-                const subList = document.createElement('li');
-                subList.setAttribute('class', 'info__item');
-                const author = document.createElement('span');
-                author.setAttribute('class', 'info__mark');
-                author.textContent = article.subtitle[i];
-                subList.appendChild(author);
-                domInfo.appendChild(subList);
-            }
+    let saveModalButton = document.querySelector('.button-edit-modal');
+    saveModalButton.addEventListener('click', function() {
+        updateArticle(article.id)
+    })
+}
 
-        }
-        container.appendChild(domInfo);
+// hash router
+function locationHashChange(articles) {
+    (location.hash === '#/') && renderArticle(articles);
+    (location.hash.includes('#/article')) && renderAllArticlesDetails(articles);
+}
 
-        const domImg = document.createElement('img');
-        domImg.setAttribute('src', article.image[0]);
-        domImg.setAttribute('alt', article.image[1]);
-        container.appendChild(domImg);
 
-        const domContent = document.createElement('div');
-        domContent.setAttribute('class', 'content__container');
-        const firstText = document.createElement('p');
-        firstText.textContent = text;
+// close modal
+let modalOverlay = document.querySelector(".modal__overlay");
+let closeModal = document.querySelector(".close-modal")
 
-        const sayingText = document.createElement('p');
-        sayingText.setAttribute('class', 'saying');
-        sayingText.textContent = saying;
+// open edit modal
+function openModal() {
+    modalOverlay.style.visibility = "visible";
+    modalOverlay.style.opacity = 1;
+}
 
-        const secondText = document.createElement('p');
-        secondText.textContent = text;
-        domContent.appendChild(firstText);
-        domContent.appendChild(sayingText);
-        domContent.appendChild(secondText);
-        container.appendChild(domContent);
+// close modal
+closeModal.addEventListener("click", function() {
+    modalOverlay.style.visibility = "hidden";
+    modalOverlay.style.opacity = 0;
 
-        mainContainer.append(container);
+})
+
+
+// dark mode 
+const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+let body = document.querySelector('body');
+
+function switchTheme(e) {
+    if (e.target.checked) {
+        body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        body.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
     }
-    function addFooter(article) {
-        const footer = document.createElement('footer');
-        footer.setAttribute('class', 'footer');
-        const prevBtn = document.createElement('button');
-        prevBtn.setAttribute('class', 'footer__link footer__link--next');
-        prevBtn.textContent = 'prev';
-
-        const nextBtn = document.createElement('button');
-        nextBtn.setAttribute('class', 'footer__link footer__link--next');
-        nextBtn.textContent = 'next';
-        const nullBtn = document.createElement('p');
-        if (article.id === 1) {
-            footer.appendChild(nullBtn);
-            footer.appendChild(nextBtn);
-            nextBtn.addEventListener('click', function () {
-                mainContainer.innerHTML = "";
-                location.hash = '/article?id=' + (article.id + 1);
-                window.onhashchange = locationHashChange;
-            })
-            mainContainer.appendChild(footer);
-
-        }
-        else if (article.id === 4) {
-            footer.appendChild(prevBtn);
-            prevBtn.addEventListener('click', function () {
-                mainContainer.innerHTML = "";
-                location.hash = '/article?id=' + (article.id - 1);
-                window.onhashchange = locationHashChange;
-            })
-            mainContainer.appendChild(footer);
-        } else {
-            footer.appendChild(prevBtn);
-            footer.appendChild(nextBtn);
-            prevBtn.addEventListener('click', function () {
-                mainContainer.innerHTML = "";
-                location.hash = '/article?id=' + (article.id - 1);
-                window.onhashchange = locationHashChange;
-            })
-            nextBtn.addEventListener('click', function () {
-                mainContainer.innerHTML = "";
-                location.hash = '/article?id=' + (article.id + 1);
-                window.onhashchange = locationHashChange;
-            })
-            mainContainer.appendChild(footer);
-        }
+}
 
 
+toggleSwitch.addEventListener('change', switchTheme, false);
+
+const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+
+if (currentTheme) {
+    body.setAttribute('data-theme', currentTheme);
+
+    if (currentTheme === 'dark') {
+        toggleSwitch.checked = true;
     }
-    function createBackButton() {
-        let backCont = document.createElement('div');
-        backCont.setAttribute('id', 'back_btn');
-        let backButton = document.createElement('button');
-        backButton.setAttribute('class', 'button');
-        backButton.textContent = 'BACK';
-        backCont.appendChild(backButton);
-        mainContainer.appendChild(backCont);
-        backButton.addEventListener('click', function () {
-            mainContainer.innerHTML = "";
-            location.hash = '#/'
-            window.onhashchange = locationHashChange;
+}
+
+// delete article
+function deleteArticle(id) {
+    fetch('http://localhost:3000/articles/' + id, {
+            method: "DELETE",
         })
-    }
-    for (let i = 0; i < articles.length; i++) {
-        if (location.hash.includes(articles[i].id)) {
-            console.log(articles[i].id);
-            createNavigation(list);
-            createBackButton();
-            createArticle(articles[i]);
-            addFooter(articles[i]);
-        }
-    }
-
-}
-
-function getArticles() {
-    fetch('http://localhost:3001/articles')
-
-        .then(
-            function (response) {
-                if (response.status !== 200) {
-                    console.log('Looks like there was a problem. Status Code: ' +
-                        response.status);
-                    return;
-                }
-
-
-                // Examine the text in the response
-                response.json().then(function (data) {
-
-                    window.onhashchange = locationHashChange(data);
-
-                });
-            }
-        )
-        .catch(function (err) {
-            console.log('Fetch Error :-S', err);
+        .then(response => response.json())
+        .then(data => {
+            console.log(data, id)
+        })
+        .catch((error) => {
+            console.error('Error:', error);
         });
-
 }
 
-// function renderArticles(data) {
-//     console.log(data);
-//     data.forEach(article => {
-//         let domDogDiv = document.createElement('div');
-//         domDogDiv.setAttribute('class', 'dog-box');
-//         let domDogImg = document.createElement('img');
-//         domDogImg.setAttribute('src', dog.img);
-//         domDogImg.setAttribute('class', 'dog-img');
-//         domDogImg.setAttribute('alt', dog.name);
 
-//         let domDogName = document.createElement('p');
-//         domDogName.setAttribute('class', 'dog-name');
-//         domDogName.textContent = dog.name;
+// create new articles & update article list
+function createNewArticle() {
+    let title = document.getElementById('title').value;
+    let tag = document.getElementById('tag').value;
+    let author = document.getElementById('author').value;
+    let date = document.getElementById('date').value;
+    let imgUrl = document.getElementById('url').value;
+    let saying = document.getElementById('saying').value;
+    let textarea = document.getElementById('textarea').value;
 
-//         domDogDiv.appendChild(domDogImg);
-//         domDogDiv.appendChild(domDogName);
+    fetch('http://localhost:3000/articles', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
 
-//         dogsContainer.appendChild(domDogDiv);
-//     });
+        body: JSON.stringify({
+            "title": title,
+            "imgUrl": imgUrl,
+            "imgAlt": 'photo',
+            "content1": textarea,
+            "content2": textarea,
+            "content3": textarea,
+            "content4": textarea,
+            "classLi": "info__item",
+            "tag": tag,
+            "author": author,
+            "date": date,
+            "saying": saying,
+        })
 
-//     loading.style.display = "none";
-// }
+    }).then(res => res.json())
 
+    .then(data =>
 
-getArticles();
+        console.log(data))
 
-function clearMain() {
-    mainContainer.innerHTML = '';
+    .catch((err) => console.log(err));
 }
-function locationHashChange(data) {
-    (location.hash === '#/') && renderHomePage(data);
-    (location.hash.includes('#/article')) && renderArticlePage(data);
+
+
+
+// edit article
+function updateArticle(id) {
+    let title = document.getElementById('title').value;
+    let tag = document.getElementById('tag').value;
+    let author = document.getElementById('author').value;
+    let date = document.getElementById('date').value;
+    let imgUrl = document.getElementById('url').value;
+    let saying = document.getElementById('saying').value;
+    let textarea = document.getElementById('textarea').value;
+
+    const putObject = {
+        title: title,
+        tag: tag,
+        author: author,
+        date: date,
+        imgUrl: imgUrl,
+        saying: saying,
+        content1: textarea,
+        content2: textarea,
+        content3: textarea,
+        content4: textarea,
+        "classLi": "info__item"
+    }
+    fetch('http://localhost:3000/articles/' + id, {
+            method: 'PUT',
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(putObject),
+        })
+        .then(response => response.json())
+        .then((data) => {
+
+            window.onhashchange = locationHashChange(data);
+
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 }
 
